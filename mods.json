@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "mods": [
+    {
+      "name": "SC:R",
+      "repository": "fogofwarlabs/sc4j-scr",
+      "description": "StarCraft: Remastered 1.23.10 reimplemented as an SC4J mod; it reads the game data of your own StarCraft: Remastered installation."
+    },
+    {
+      "name": "SC:R Crossover",
+      "repository": "fogofwarlabs/sc4j-scr-crossover",
+      "description": "A clone of the SC:R mod with changed Marine values and two added units; it needs the same StarCraft: Remastered installation."
+    }
+  ]
+}
