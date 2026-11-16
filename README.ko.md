@@ -2,7 +2,7 @@
 
 [English](README.md) | **한국어**
 
-`mods.json`은 [SC4J](https://github.com/fogofwarlabs/sc4j/blob/main/README.ko.md) 런처가 설치용으로 보여 주는 모드 목록입니다. 런처는 `main`에서 이 파일을 읽고, 모드를 그 저장소의 GitHub 릴리스에서 설치합니다. 목록에 없는 모드는 저장소를 입력해 설치할 수 있습니다.
+`mods.json`은 [SC4J](https://github.com/fogofwarlabs/sc4j/blob/main/README.ko.md) 런처가 설치용으로 보여 주는 모드 목록입니다. 런처는 `main`에서 이 파일을 읽고, 모드를 그 저장소의 GitHub 릴리즈에서 설치합니다. 목록에 없는 모드는 저장소를 입력해 설치할 수 있습니다.
 
 ## 형식
 
@@ -27,7 +27,7 @@
 
 ## 모드 추가
 
-1. 모드의 릴리스마다 `<id>.jar`(`<id>`는 그 `sc4j-mod.json`의 id)와 `sha256sum` 형식의 `<id>.jar.sha256`이 있는 GitHub 릴리스 `vX.Y.Z`가 있어야 합니다.
+1. 모드의 릴리즈마다 `<id>.jar`(`<id>`는 그 `sc4j-mod.json`의 id)와 `sha256sum` 형식의 `<id>.jar.sha256`이 있는 GitHub 릴리즈 `vX.Y.Z`가 있어야 합니다.
 2. 항목을 추가하는 풀 리퀘스트를 엽니다.
 3. `validate` 검사를 통과해야 합니다: `python3 scripts/validate_mods.py`.
 
