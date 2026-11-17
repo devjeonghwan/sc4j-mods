@@ -10,7 +10,7 @@
 {
   "format": 1,
   "mods": [
-    {"name": "SC:R", "repository": "fogofwarlabs/sc4j-scr", "description": "..."}
+    {"name": {"en": "My Mod", "ko": "내 모드"}, "repository": "owner/my-mod", "description": {"en": "...", "ko": "..."}}
   ]
 }
 ```
@@ -19,9 +19,9 @@
 |---|---|
 | `format` | `1` |
 | `mods` | entries, in launcher order |
-| `name` | name shown, one line |
+| `name` | name shown, one line, per language as in the mod manifest: `{"en": "...", "ko": "..."}` |
 | `repository` | GitHub `owner/repo` |
-| `description` | one line |
+| `description` | one line, per language like `name` |
 
 All fields are required. Names and repositories are unique, ignoring case.
 

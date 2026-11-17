@@ -10,7 +10,7 @@
 {
   "format": 1,
   "mods": [
-    {"name": "SC:R", "repository": "fogofwarlabs/sc4j-scr", "description": "..."}
+    {"name": {"en": "My Mod", "ko": "내 모드"}, "repository": "owner/my-mod", "description": {"en": "...", "ko": "..."}}
   ]
 }
 ```
@@ -19,9 +19,9 @@
 |---|---|
 | `format` | `1` |
 | `mods` | 항목, 런처에 보이는 순서 |
-| `name` | 보이는 이름, 한 줄 |
+| `name` | 보이는 이름, 한 줄, 모드 매니페스트처럼 언어별: `{"en": "...", "ko": "..."}` |
 | `repository` | GitHub `owner/repo` |
-| `description` | 한 줄 |
+| `description` | 한 줄, `name`처럼 언어별 |
 
 모든 필드가 필요합니다. 이름과 저장소는 대소문자 구분 없이 중복될 수 없습니다.
 

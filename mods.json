@@ -2,14 +2,20 @@
   "format": 1,
   "mods": [
     {
-      "name": "SC:R",
+      "name": {"en": "StarCraft: Remastered", "ko": "스타크래프트: 리마스터"},
       "repository": "fogofwarlabs/sc4j-scr",
-      "description": "StarCraft: Remastered for SC4J. Requires StarCraft: Remastered."
+      "description": {
+        "en": "StarCraft: Remastered for SC4J. Requires StarCraft: Remastered.",
+        "ko": "SC4J용 스타크래프트: 리마스터. 스타크래프트: 리마스터 설치 필요."
+      }
     },
     {
-      "name": "SC:R Crossover",
+      "name": {"en": "SC:R Crossover", "ko": "SC:R Crossover"},
       "repository": "fogofwarlabs/sc4j-scr-crossover",
-      "description": "SC:R mod clone with two added units. Requires StarCraft: Remastered."
+      "description": {
+        "en": "SC:R mod clone with two added units. Requires StarCraft: Remastered. Unity-chan: © Unity Technologies Japan/UCL (Unity-chan License 3.0).",
+        "ko": "유닛 둘을 추가한 SC:R 모드 복제본. 스타크래프트: 리마스터 설치 필요. 유니티짱: © Unity Technologies Japan/UCL (유니티짱 라이선스 3.0)."
+      }
     }
   ]
 }
