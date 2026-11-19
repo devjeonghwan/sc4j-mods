@@ -7,6 +7,8 @@ import sys
 CATALOG_FORMAT = 1
 CATALOG_KEYS = {"format", "mods"}
 ENTRY_KEYS = {"name", "repository", "description"}
+# A language code (en, ko, pt-BR) as the mod manifest's localized texts use them.
+LANGUAGE_PATTERN = re.compile(r"^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$")
 # A GitHub owner (letters, digits, inner hyphens, at most 39 characters) and a repository name.
 REPOSITORY_PATTERN = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}/(?!\.{1,2}$)[A-Za-z0-9._-]{1,100}$")
 
@@ -27,6 +29,23 @@ def check_text(problems, where, entry, key):
     if value != value.strip() or "\n" in value or "\r" in value:
         problems.append(f"{where}: {key} must be one line without leading or trailing spaces")
     return value
+
+
+def check_localized_text(problems, where, entry, key, required):
+    """Checks a localized text: a non-empty object of one-line texts by language code. Returns its English text, or its first text."""
+    value = entry.get(key)
+    if value is None and not required:
+        return None
+    if not isinstance(value, dict) or not value:
+        problems.append(f"{where}: {key} must be an object of texts by language")
+        return None
+    for language, text in value.items():
+        if not LANGUAGE_PATTERN.match(language):
+            problems.append(f"{where}: {key} language {language} is not a language code")
+        check_text(problems, f"{where}: {key}", value, language)
+    first = next(iter(value.values()))
+    english = value.get("en", first)
+    return english if isinstance(english, str) else None
 
 
 def check_catalog(catalog):
@@ -50,9 +69,9 @@ def check_catalog(catalog):
             continue
         for key in sorted(set(entry) - ENTRY_KEYS):
             problems.append(f"{where}: unknown key {key}")
-        name = check_text(problems, where, entry, "name")
+        name = check_localized_text(problems, where, entry, "name", True)
         repository = check_text(problems, where, entry, "repository")
-        check_text(problems, where, entry, "description")
+        check_localized_text(problems, where, entry, "description", False)
         if repository is not None and not REPOSITORY_PATTERN.match(repository):
             problems.append(f"{where}: repository {repository} is not owner/repo")
         # Names and repositories compare without case, as GitHub names do.
